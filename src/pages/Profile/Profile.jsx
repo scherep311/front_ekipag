@@ -35,7 +35,7 @@ export default function Profile() {
   async function handlePhotoChange(e) {
     const file = e.target.files?.[0];
     if (!file) return;
-    const allowed = ["image/jpeg", "image/png", "image/webp"];
+    const allowed = ["image/jpeg", "image/png", "image/webp", "image/heic", "image/heif"];
     if (!allowed.includes(file.type)) { setError("Допустимые форматы: JPG, PNG, WEBP"); return; }
     if (file.size > 5 * 1024 * 1024) { setError("Файл слишком большой (максимум 5 МБ)"); return; }
     setUploading(true);
@@ -115,7 +115,7 @@ export default function Profile() {
                   </svg>
                 )}
               </div>
-              <input ref={fileInputRef} type="file" accept="image/jpeg,image/png,image/webp" className="profile-file-input" onChange={handlePhotoChange} />
+              <input ref={fileInputRef} type="file" accept="image/*" className="profile-file-input" onChange={handlePhotoChange} onClick={e => e.stopPropagation()} />
             </div>
 
             <div className="profile-student-info">
