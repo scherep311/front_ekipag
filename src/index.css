@@ -51,4 +51,5 @@ button {
 input {
   font-family: var(--font);
   letter-spacing: var(--letter-spacing);
+  font-size: 16px;
 }
