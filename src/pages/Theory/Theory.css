@@ -1,0 +1,670 @@
+/* ── Общая обёртка ─────────────────────────────────────────────────────────── */
+.theory-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-white, #fff);
+  font-family: var(--font, "Montserrat", sans-serif);
+  letter-spacing: -0.03em;
+}
+
+.theory-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+/* ── Общие утилиты ─────────────────────────────────────────────────────────── */
+.theory-loading {
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #9FA0A2;
+}
+
+.theory-empty {
+  padding: 48px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #9FA0A2;
+}
+
+.theory-back {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #223BAB;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  min-width: 32px;
+}
+
+.theory-btn-outline {
+  width: 100%;
+  background: none;
+  border: 1.5px solid #E9EAEE;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #223BAB;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.theory-btn-outline:active { background: #f3f4f8; }
+
+.theory-error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 24px;
+  font-size: 14px;
+  color: #e53935;
+}
+
+/* ── Шапка с назад ─────────────────────────────────────────────────────────── */
+.theory-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 20px 12px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+
+.theory-topbar-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin: 25px 0 20px;
+  flex: 1;
+}
+
+/* ── Экран выбора режима ───────────────────────────────────────────────────── */
+.theory-mode-screen {
+  padding: 28px 20px 0;
+}
+
+.theory-main-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin: 25px 0 35%;
+}
+
+.theory-main-sub {
+  font-size: 13px;
+  color: #9FA0A2;
+  margin: 0 0 24px;
+}
+
+.theory-mode-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.theory-mode-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #F7F8FB;
+  border: none;
+  border-radius: 16px;
+  padding: 18px 16px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.15s, transform 0.1s;
+  color: #1A1A1A;
+}
+.theory-mode-card:active { background: #ECEEF5; transform: scale(0.98); }
+
+.theory-mode-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.theory-mode-icon--blue  { background: #E8EDFF; color: #223BAB; }
+.theory-mode-icon--green { background: #E6F7EE; color: #1E8A4C; }
+.theory-mode-icon--gray  { background: #F0F0F0; color: #6B6C6F; }
+
+.theory-mode-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.theory-mode-label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.theory-mode-desc {
+  font-size: 12px;
+  color: #9FA0A2;
+  font-weight: 400;
+}
+
+/* ── Список билетов / тем ──────────────────────────────────────────────────── */
+.theory-list-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.theory-list {
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.theory-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F7F8FB;
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #1A1A1A;
+  transition: background 0.15s;
+}
+.theory-list-item:active { background: #ECEEF5; }
+
+.theory-list-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.theory-list-item-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.theory-list-item-count {
+  font-size: 12px;
+  color: #9FA0A2;
+}
+
+/* ── Экран экзамена ────────────────────────────────────────────────────────── */
+.exam-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.exam-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 16px 8px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+
+.exam-header-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exam-filter-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.exam-counter {
+  font-size: 12px;
+  color: #9FA0A2;
+}
+
+.exam-progress-pct {
+  font-size: 12px;
+  font-weight: 600;
+  color: #223BAB;
+  min-width: 36px;
+  text-align: right;
+}
+
+.exam-progress-track {
+  height: 4px;
+  background: #E9EAEE;
+  margin: 0;
+}
+
+.exam-progress-fill {
+  height: 100%;
+  background: #223BAB;
+  border-radius: 0 2px 2px 0;
+  transition: width 0.3s ease;
+}
+
+.exam-body {
+  padding: 20px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.exam-question-num {
+  font-size: 12px;
+  color: #9FA0A2;
+  margin: 0;
+}
+
+.exam-question-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.exam-image-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F7F8FB;
+}
+
+.exam-image {
+  width: 100%;
+  display: block;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.exam-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exam-answer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #F7F8FB;
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  padding: 14px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s;
+}
+.exam-answer:not(:disabled):active { background: #ECEEF5; }
+.exam-answer:disabled { cursor: default; }
+
+.exam-answer--correct {
+  background: #E6F7EE;
+  border-color: transparent;
+}
+.exam-answer--wrong {
+  background: #FDECEA;
+  border-color: transparent;
+}
+.exam-answer--muted {
+  opacity: 0.45;
+}
+
+.exam-answer-index {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+  color: #1A1A1A;
+}
+.exam-answer--correct .exam-answer-index { background: #1E8A4C; color: #fff; }
+.exam-answer--wrong   .exam-answer-index { background: #e53935; color: #fff; }
+
+.exam-answer-text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1A1A1A;
+  line-height: 1.4;
+}
+
+.exam-answer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exam-answer-icon--ok  { color: #1E8A4C; }
+.exam-answer-icon--no  { color: #e53935; }
+
+.exam-tip {
+  background: #FFF8E1;
+  border-left: 3px solid #F9A825;
+  border-radius: 0 10px 10px 0;
+  padding: 12px 14px;
+}
+.exam-tip p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5D4037;
+}
+
+.exam-nav {
+  margin-top: 4px;
+}
+
+.exam-btn-next {
+  width: 100%;
+  background: #223BAB;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 17px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+.exam-btn-next:active { opacity: 0.85; }
+
+.exam-btn-finish {
+  width: 100%;
+  background: #1E8A4C;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 17px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+.exam-btn-finish:disabled { opacity: 0.6; cursor: default; }
+.exam-btn-finish:not(:disabled):active { opacity: 0.85; }
+
+.exam-btn-early-finish {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px;
+  font-size: 13px;
+  color: #9FA0A2;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: underline;
+}
+
+/* ── Экран результата ──────────────────────────────────────────────────────── */
+.result-screen {
+  padding: 0 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.result-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding-top: 0;
+}
+
+/* Цветная полоска вверху вместо иконки */
+.result-status-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 0 0 6px 6px;
+  margin-bottom: 28px;
+  align-self: stretch;
+}
+.result-status-bar--pass { background: #1E8A4C; }
+.result-status-bar--fail { background: #e53935; }
+
+.result-badge {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.result-badge--pass { background: #E6F7EE; color: #1E8A4C; }
+.result-badge--fail { background: #FDECEA; color: #e53935; }
+
+.result-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0;
+}
+
+.result-sub {
+  font-size: 13px;
+  color: #9FA0A2;
+  font-weight: 400;
+  margin: 0;
+}
+
+.result-score-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.result-score-num {
+  font-size: 52px;
+  font-weight: 300;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
+.result-score-sep {
+  font-size: 20px;
+  font-weight: 300;
+  color: #9FA0A2;
+}
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result-details-section {
+  border-top: 1px solid #E9EAEE;
+  padding-top: 16px;
+}
+
+.result-details-toggle {
+  background: none;
+  border: none;
+  color: #223BAB;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+
+.result-details-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.result-detail-item {
+  background: #F7F8FB;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result-detail-q {
+  font-size: 14px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.result-detail-img {
+  width: 100%;
+  border-radius: 8px;
+  max-height: 150px;
+  object-fit: contain;
+  background: #fff;
+}
+
+.result-detail-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.result-detail-ans {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #6B6C6F;
+}
+.result-detail-ans--correct {
+  background: #E6F7EE;
+  color: #1E8A4C;
+  font-weight: 500;
+}
+.result-detail-ans--wrong {
+  background: #FDECEA;
+  color: #e53935;
+}
+
+.result-detail-tip {
+  font-size: 12px;
+  font-weight: 400;
+  color: #5D4037;
+  background: #FFF8E1;
+  border-left: 3px solid #F9A825;
+  border-radius: 0 8px 8px 0;
+  padding: 8px 10px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.result-all-correct {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  color: #1E8A4C;
+}
+
+/* ── История ───────────────────────────────────────────────────────────────── */
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F7F8FB;
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.history-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.history-item-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.history-item-date {
+  font-size: 12px;
+  color: #9FA0A2;
+}
+
+.history-item-result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.history-item-score {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.history-badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.history-badge--pass { background: #E6F7EE; color: #1E8A4C; }
+.history-badge--fail { background: #FDECEA; color: #e53935; }
+/* ── Красная карточка режима (экзамен) ────────────────────────────────────── */
+.theory-mode-icon--red {
+  background: #FDECEA;
+  color: #e53935;
+}
+
+/* ── Индикатор ошибок ─────────────────────────────────────────────────────── */
+.exam-mistake-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.exam-mistake-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #E9EAEE;
+  transition: background 0.25s;
+}
+
+.exam-mistake-dot--used {
+  background: #e53935;
+}

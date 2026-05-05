@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  height: 10%;
+  background: #fff;
+  border-top: 2px solid #E9EAEE;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.bnav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.03em;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bnav-icon {
+  width: 22px;
+  height: 22px;
+  color: #9FA0A2;
+  filter: invert(65%) sepia(5%) saturate(200%) hue-rotate(180deg) brightness(92%);
+  transition: filter 0.15s;
+}
+
+.bnav-icon--active {
+  filter: invert(18%) sepia(85%) saturate(1000%) hue-rotate(215deg) brightness(80%);
+}
+
+.bnav-label {
+  font-size: 10px;
+  font-weight: 400;
+  color: #9FA0A2;
+  line-height: 1;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.bnav-item--active .bnav-label {
+  color: #223BAB;
+  font-weight: 500;
+}

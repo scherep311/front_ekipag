@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Переменные ── */
+:root {
+  --rl-blue:      #223BAB;
+  --rl-orange:    #F5A623;
+  --rl-bg:        #ECEDF1;
+  --rl-white:     #ffffff;
+  --rl-black:     #0A0A0A;
+  --rl-gray:      #9FA0A2;
+  --rl-error:     #E53935;
+  --rl-success:   #2E7D32;
+  --rl-input-bg:  #F4F4F6;
+  --rl-font:      'Montserrat', sans-serif;
+  --rl-ls:        -0.03em;
+}
+
+/* ── Страница ── */
+.rl-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--rl-bg);
+  font-family: var(--rl-font);
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── Шапка ── */
+.rl-header {
+  background: var(--rl-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 32px;
+  flex: 1;
+}
+
+.rl-logo-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--rl-blue);
+  text-align: center;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.rl-logo-text span {
+  color: var(--rl-orange);
+}
+
+/* ── Основная карточка ── */
+.rl-card {
+  background: var(--rl-white);
+  border-radius: 28px 28px 0 0;
+  flex: 0 0 auto;
+  padding: 44px 24px 48px;
+  padding-bottom: max(48px, calc(24px + env(safe-area-inset-bottom)));
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rl-card--center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 28px;
+  margin: 0 16px 32px;
+  flex: none;
+  padding: 40px 28px;
+  gap: 16px;
+}
+
+/* ── Иконки состояний ── */
+.rl-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.rl-icon-wrap--warn {
+  background: #FFF3E0;
+  color: #E65100;
+}
+
+.rl-icon-wrap--info {
+  background: #E3F2FD;
+  color: #1565C0;
+}
+
+.rl-icon-wrap--success {
+  background: #E8F5E9;
+  color: var(--rl-success);
+}
+
+/* ── Заголовок карточки ── */
+.rl-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--rl-black);
+  letter-spacing: var(--rl-ls);
+  margin: 0;
+}
+
+.rl-card-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--rl-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Success note ── */
+.rl-success-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--rl-blue);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ── Форма: заголовок ── */
+.rl-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--rl-black);
+  letter-spacing: var(--rl-ls);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+/* ── Пригласивший ── */
+.rl-inviter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.rl-inviter-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.rl-inviter-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--rl-black);
+}
+
+.rl-inviter-label strong {
+  font-weight: 500;
+}
+
+/* ── Подзаголовок формы ── */
+.rl-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--rl-gray);
+  margin: 0 0 16px;
+}
+
+/* ── Форма ── */
+.rl-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Строка из двух полей ── */
+.rl-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ── Поле ── */
+.rl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rl-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--rl-input-bg);
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 16px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--rl-black);
+  font-family: var(--rl-font);
+  letter-spacing: var(--rl-ls);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.rl-input::placeholder {
+  color: var(--rl-gray);
+  font-weight: 300;
+}
+
+.rl-input:focus {
+  border-color: var(--rl-blue);
+}
+
+.rl-input--error {
+  border-color: var(--rl-error);
+}
+
+.rl-input--error:focus {
+  border-color: var(--rl-error);
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.15);
+}
+
+.rl-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Ошибки полей ── */
+.rl-field-error {
+  font-size: 11px;
+  color: var(--rl-error);
+  padding-left: 4px;
+  line-height: 1.4;
+}
+
+.rl-server-error {
+  font-size: 13px;
+  color: var(--rl-error);
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Чекбокс ── */
+.rl-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--rl-black);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.rl-checkbox-row input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  accent-color: var(--rl-blue);
+  margin-top: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.rl-checkbox-row label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.rl-checkbox-row a {
+  color: var(--rl-blue);
+  text-decoration: underline;
+}
+
+.rl-checkbox-row--error {
+  color: var(--rl-error);
+}
+
+/* ── Кнопка ── */
+.rl-btn {
+  width: 100%;
+  background: var(--rl-orange);
+  color: var(--rl-white);
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--rl-font);
+  letter-spacing: var(--rl-ls);
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  margin-top: 4px;
+}
+
+.rl-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.rl-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.rl-btn:disabled {
+  cursor: not-allowed;
+}
+
+.rl-btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.rl-btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: rl-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes rl-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Дисклеймер ── */
+.rl-disclaimer {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--rl-gray);
+  line-height: 1.6;
+  text-align: center;
+  margin: 16px 0 0;
+}
+
+/* ── Загрузка ── */
+.rl-loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rl-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #dde;
+  border-top-color: var(--rl-blue);
+  border-radius: 50%;
+  animation: rl-spin 0.8s linear infinite;
+}
+
+.rl-card-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.rl-hero-img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: min(300px, 78vw);
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto -30px;
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .rl-header {
+    padding: 36px 20px 24px;
+  }
+  .rl-card {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .rl-card--center {
+    margin: 0 12px 28px;
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 390px) {
+  .rl-logo-text {
+    font-size: 20px;
+  }
+  .rl-title {
+    font-size: 22px;
+  }
+  .rl-card {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 40px;
+  }
+  .rl-btn {
+    padding: 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .rl-title {
+    font-size: 20px;
+  }
+  .rl-row {
+    grid-template-columns: 1fr;
+  }
+  .rl-input {
+    padding: 14px 12px;
+    font-size: 13px;
+  }
+  .rl-card {
+    border-radius: 20px 20px 0 0;
+    padding-top: 36px;
+  }
+}

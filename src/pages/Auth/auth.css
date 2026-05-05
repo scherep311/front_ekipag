@@ -1,0 +1,259 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  background-color: var(--color-white);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-black);
+  text-align: center;
+  margin-bottom: 4px;
+  letter-spacing: var(--letter-spacing);
+}
+
+.auth-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.auth-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+}
+
+/* ── Field wrapper ─────────────────────────────────────── */
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Inline validation error под полем */
+.auth-field-error {
+  font-size: 12px;
+  font-weight: 400;
+  color: #e53935;
+  padding-left: 4px;
+  line-height: 1.4;
+}
+
+/* Server-level error (общий блок) */
+.auth-server-error {
+  font-size: 13px;
+  font-weight: 400;
+  color: #e53935;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Input ─────────────────────────────────────────────── */
+.auth-input {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--color-bg-input);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--color-black);
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  letter-spacing: var(--letter-spacing);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.auth-input::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.auth-input:focus {
+  box-shadow: 0 0 0 2px var(--color-blue);
+}
+
+/* Поле с ошибкой */
+.auth-input--error {
+  border-color: #e53935;
+  box-shadow: none;
+}
+
+.auth-input--error:focus {
+  box-shadow: 0 0 0 2px #e53935;
+}
+
+/* ── Button ────────────────────────────────────────────── */
+.auth-btn {
+  width: 100%;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font);
+  text-align: center;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  margin-top: 2px;
+  letter-spacing: var(--letter-spacing);
+}
+
+.auth-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.auth-btn:active:not(:disabled) {
+  transform: scale(0.98);
+  opacity: 0.85;
+}
+
+/* ── Footer link ───────────────────────────────────────── */
+.auth-footer {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-black);
+  margin-top: 2px;
+}
+
+.auth-footer a,
+.auth-footer span {
+  color: var(--color-blue);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ── Checkbox ──────────────────────────────────────────── */
+.auth-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-black);
+  line-height: 1.5;
+}
+
+.auth-checkbox-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  accent-color: var(--color-blue);
+  margin-top: 2px;
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.auth-checkbox-row label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-checkbox-row a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  pointer-events: auto;
+}
+
+/* ── Back button ───────────────────────────────────────── */
+.auth-back {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 20px;
+  color: var(--color-blue);
+  cursor: pointer;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+/* ── OTP grid ──────────────────────────────────────────── */
+.otp-grid {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.otp-cell {
+  width: 46px;
+  height: 46px;
+  background-color: var(--color-bg-input);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  outline: none;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--font);
+  letter-spacing: 0;
+  color: var(--color-black);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  caret-color: var(--color-blue);
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+.otp-cell:focus {
+  box-shadow: 0 0 0 2px var(--color-blue);
+}
+
+.otp-subtitle {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-black);
+  margin-top: -4px;
+  line-height: 1.5;
+}
+
+.otp-resend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.otp-resend-icon {
+  color: var(--color-blue);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .otp-cell {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .auth-title {
+    font-size: 20px;
+  }
+}

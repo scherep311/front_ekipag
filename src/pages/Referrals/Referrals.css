@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ── Страница ── */
+.ref-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #E9EAEE;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.03em;
+  max-width: 430px;
+  position: relative;
+}
+
+.ref-content {
+  flex: 1;
+  padding: 0 0 88px;
+  overflow-y: auto;
+}
+
+/* ── Шапка ── */
+.ref-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 52px 16px 16px;
+}
+
+.ref-back-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ref-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+/* ── Статистика ── */
+.ref-stats-card {
+  background: #223BAB;
+  border-radius: 20px;
+  margin: 0 16px 8px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+}
+
+.ref-stats-num {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.ref-stats-label {
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* ── Заголовки секций ── */
+.ref-section-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: #000;
+  padding: 16px 16px 8px;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ref-count-badge {
+  background: #223BAB;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 2px 8px;
+  letter-spacing: 0;
+}
+
+/* ── Карточка ссылки ── */
+.ref-link-card {
+  background: #fff;
+  border-radius: 16px;
+  margin: 0 16px 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ref-link-url {
+  font-size: 13px;
+  font-weight: 400;
+  color: #223BAB;
+  word-break: break-all;
+  background: #F0F2FA;
+  border-radius: 10px;
+  padding: 10px 12px;
+  letter-spacing: 0;
+}
+
+.ref-link-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.ref-link-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 13px 10px;
+  border-radius: 12px;
+  border: 1.5px solid #223BAB;
+  background: #fff;
+  color: #223BAB;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.03em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ref-link-btn:hover {
+  background: #223BAB;
+  color: #fff;
+}
+
+.ref-link-btn--copied {
+  background: #E8F5E9;
+  border-color: #2E7D32;
+  color: #2E7D32;
+}
+
+.ref-link-btn--share {
+  background: #223BAB;
+  color: #fff;
+}
+
+.ref-link-btn--share:hover {
+  background: #1a2e8a;
+  border-color: #1a2e8a;
+}
+
+/* ── Как работает ── */
+.ref-how-card {
+  background: #fff;
+  border-radius: 16px;
+  margin: 0 16px 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ref-how-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ref-how-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #F0F2FA;
+  color: #223BAB;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ref-how-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ── Список приглашённых ── */
+.ref-leads-list {
+  background: #fff;
+  border-radius: 16px;
+  margin: 0 16px;
+  overflow: hidden;
+}
+
+.ref-lead-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #F0F0F2;
+}
+
+.ref-lead-item:last-child {
+  border-bottom: none;
+}
+
+.ref-lead-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #E9EAEE;
+  color: #223BAB;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ref-lead-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ref-lead-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ref-lead-phone {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9FA0A2;
+  margin-top: 2px;
+  letter-spacing: 0;
+}
+
+/* ── Статусы ── */
+.ref-status-badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.status--new {
+  background: #F0F2FA;
+  color: #223BAB;
+}
+
+.status--contacted {
+  background: #FFF8E1;
+  color: #F57F17;
+}
+
+.status--registered {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.status--rejected {
+  background: #FAFAFA;
+  color: #9FA0A2;
+}
+
+/* ── Пустой список ── */
+.ref-empty {
+  background: #fff;
+  border-radius: 16px;
+  margin: 0 16px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.ref-empty-icon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.ref-empty-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9FA0A2;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Загрузка / ошибка ── */
+.ref-loading,
+.ref-error-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+  font-size: 14px;
+  color: #9FA0A2;
+  padding: 24px;
+  text-align: center;
+}
+
+.ref-spinner {
+  width: 30px;
+  height: 30px;
+  border: 2.5px solid #E9EAEE;
+  border-top-color: #223BAB;
+  border-radius: 50%;
+  animation: ref-spin 0.7s linear infinite;
+}
+
+@keyframes ref-spin {
+  to { transform: rotate(360deg); }
+}
+
+.ref-retry-btn {
+  padding: 12px 24px;
+  background: #223BAB;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}

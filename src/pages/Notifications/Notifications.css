@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.notif-screen {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.03em;
+  background: #fff;
+  color: #000;
+  max-width: 430px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.notif-header {
+  background: #fff;
+  padding: 56px 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notif-back-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  color: #223BAB;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notif-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  letter-spacing: -0.03em;
+}
+
+.notif-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 0 24px;
+}
+
+.notif-card {
+  background: #fff;
+}
+
+.notif-item {
+  padding: 16px 22px;
+  position: relative;
+}
+
+/* Divider not full-width, inset from left, thicker */
+.notif-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 18px;
+  right: 18px;
+  height: 1.5px;
+  background: #E9EAEE;
+}
+
+.notif-item:last-child::after {
+  display: none;
+}
+
+.notif-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.notif-emoji {
+  font-size: 12px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.notif-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  letter-spacing: -0.03em;
+}
+
+.notif-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  line-height: 1.45;
+  margin-left: 0;
+}
+
+.notif-time {
+  font-size: 12px;
+  color: #9FA0A2;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.notif-empty {
+  text-align: center;
+  color: #9FA0A2;
+  font-size: 14px;
+  padding: 48px 18px;
+  font-weight: 400;
+}
+
+.notif-loading {
+  text-align: center;
+  color: #9FA0A2;
+  font-size: 14px;
+  padding: 48px 18px;
+}
