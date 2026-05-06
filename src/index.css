@@ -52,10 +52,10 @@ button {
   outline: none;
 }
 
-input {
+input, textarea, select {
   font-family: var(--font);
   letter-spacing: var(--letter-spacing);
-  font-size: 16px;
+  font-size: 16px !important;
   touch-action: manipulation;
 }
 
