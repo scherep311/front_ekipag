@@ -20,6 +20,7 @@ export default function Login() {
   const [errors,      setErrors]      = useState({});
   const [loading,     setLoading]     = useState(false);
   const [serverError, setServerError] = useState("");
+  const [suspended,   setSuspended]   = useState(false);
 
   const handlePhoneChange = useCallback(
     makePhoneHandler(setPhone, phoneRef, () =>
@@ -39,6 +40,7 @@ export default function Login() {
 
   const handleSubmit = async () => {
     setServerError("");
+    setSuspended(false);
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) { setErrors(validationErrors); return; }
     setLoading(true);
@@ -49,7 +51,11 @@ export default function Login() {
       subscribeToPush();
       navigate("/");
     } catch (err) {
-      setServerError(err.message || "Неверный номер или пароль");
+      if (err.status === 403) {
+        setSuspended(true);
+      } else {
+        setServerError(err.message || "Неверный номер или пароль");
+      }
     } finally {
       setLoading(false);
     }
@@ -99,6 +105,12 @@ export default function Login() {
           Забыли пароль?
         </p>
 
+        {suspended && (
+          <div className="auth-suspended-block">
+            <p className="auth-suspended-title">Вход в аккаунт недоступен</p>
+            <p className="auth-suspended-text">Ваш аккаунт временно приостановлен. Обратитесь к администратору.</p>
+          </div>
+        )}
         {serverError && <p className="auth-server-error">{serverError}</p>}
 
         <button className="auth-btn" onClick={handleSubmit} disabled={loading} style={{ opacity: loading ? 0.5 : 1 }}>

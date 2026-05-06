@@ -246,6 +246,32 @@
   cursor: pointer;
 }
 
+/* ── Suspended account block ───────────────────────────── */
+.auth-suspended-block {
+  background: #fff8e1;
+  border: 1.5px solid #ffb300;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auth-suspended-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e65100;
+  margin: 0;
+}
+
+.auth-suspended-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: #5d4037;
+  margin: 0;
+  line-height: 1.4;
+}
+
 /* ── Responsive ────────────────────────────────────────── */
 @media (max-width: 400px) {
   .otp-cell {

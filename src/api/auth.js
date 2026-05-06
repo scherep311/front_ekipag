@@ -8,7 +8,11 @@ export async function login({ phone_number, password }) {
     body: JSON.stringify({ phone_number, password }),
   });
   const data = await res.json();
-  if (!res.ok) throw new Error(data.detail || "Неверный номер или пароль");
+  if (!res.ok) {
+    const err = new Error(data.detail || "Неверный номер или пароль");
+    err.status = res.status;
+    throw err;
+  }
   return data; // { access, refresh }
 }
 

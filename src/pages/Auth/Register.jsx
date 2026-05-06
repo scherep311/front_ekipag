@@ -71,10 +71,29 @@ export default function Register() {
   );
 
   const handleDateBirthChange = useCallback((e) => {
-    const digits = e.target.value.replace(/\D/g, "").slice(0, 8);
+    const raw = e.target.value.replace(/\D/g, "").slice(0, 8);
+
+    let day = raw.slice(0, 2);
+    if (day.length === 2) {
+      const d = parseInt(day, 10);
+      if (d < 1) day = "01";
+      else if (d > 31) day = "31";
+    }
+
+    let month = raw.slice(2, 4);
+    if (month.length === 2) {
+      const m = parseInt(month, 10);
+      if (m < 1) month = "01";
+      else if (m > 12) month = "12";
+    }
+
+    const year = raw.slice(4, 8);
+    const digits = day + month + year;
+
     let formatted = digits;
     if (digits.length > 4) formatted = digits.slice(0, 2) + "." + digits.slice(2, 4) + "." + digits.slice(4);
     else if (digits.length > 2) formatted = digits.slice(0, 2) + "." + digits.slice(2);
+
     setDateBirth(formatted);
     clearError("dateBirth");
   }, [clearError]);
