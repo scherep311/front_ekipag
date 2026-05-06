@@ -1,7 +1,7 @@
 // sw.js — Service Worker для Web Push уведомлений
 // Поддержка: Android Chrome, iOS Safari 16.4+ (Add to Home Screen)
 
-const CACHE_NAME = "autoschool-v1";
+const CACHE_NAME = "autoschool-v3";
 
 // ── Push handler ──────────────────────────────────────────────────────────────
 
