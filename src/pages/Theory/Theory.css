@@ -2,7 +2,8 @@
 .theory-screen {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   background: var(--color-white, #fff);
   font-family: var(--font, "Montserrat", sans-serif);
   letter-spacing: -0.03em;
@@ -11,6 +12,8 @@
 .theory-scroll {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
   padding-bottom: 80px;
 }
 
@@ -160,7 +163,7 @@
 .theory-list-screen {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 .theory-list {
@@ -206,7 +209,7 @@
 .exam-screen {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
   background: #fff;
 }
 

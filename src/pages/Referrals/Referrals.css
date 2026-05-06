@@ -4,7 +4,8 @@
 .ref-page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   background: #E9EAEE;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: -0.03em;
@@ -16,6 +17,8 @@
   flex: 1;
   padding: 0 0 88px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
 }
 
 /* ── Шапка ── */

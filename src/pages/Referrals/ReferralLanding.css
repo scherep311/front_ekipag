@@ -17,8 +17,10 @@
 
 /* ── Страница ── */
 .rl-page {
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
   background: var(--rl-bg);
   font-family: var(--rl-font);
   display: flex;

@@ -1,6 +1,9 @@
 /* src/pages/Legal/Legal.css */
 .legal-page {
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
   background: #F5F6FA;
   display: flex;
   flex-direction: column;
