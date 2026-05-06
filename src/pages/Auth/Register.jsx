@@ -1,5 +1,5 @@
 // src/pages/Auth/Register.jsx
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import { register, sendOtp } from "../../api/auth";
@@ -39,6 +39,11 @@ function validatePassword(value) {
 }
 
 export default function Register() {
+  useEffect(() => {
+    document.body.classList.add('auth-mode');
+    return () => document.body.classList.remove('auth-mode');
+  }, []);
+
   const navigate = useNavigate();
   const phoneRef = useRef(null);
 

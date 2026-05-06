@@ -1,5 +1,5 @@
 // src/pages/Auth/Login.jsx
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import { login } from "../../api/auth";
@@ -7,6 +7,11 @@ import { subscribeToPush } from "../../hooks/usePushNotifications";
 import { phoneToServer, makePhoneHandler } from "./phoneUtils";
 
 export default function Login() {
+  useEffect(() => {
+    document.body.classList.add('auth-mode');
+    return () => document.body.classList.remove('auth-mode');
+  }, []);
+
   const navigate = useNavigate();
   const phoneRef = useRef(null);
 

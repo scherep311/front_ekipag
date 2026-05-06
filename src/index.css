@@ -26,6 +26,17 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Auth pages: allow natural scroll so iOS keyboard doesn't trigger zoom */
+body.auth-mode,
+body.auth-mode html {
+  overflow: visible;
+  height: auto;
+}
+body.auth-mode #root {
+  overflow: visible;
+  height: auto;
+}
+
 body {
   display: flex;
   flex-direction: column;

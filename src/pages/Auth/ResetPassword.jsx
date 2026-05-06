@@ -8,6 +8,11 @@ const CODE_LENGTH    = 6;
 const RESEND_SECONDS = 60;
 
 export default function ResetPassword() {
+  useEffect(() => {
+    document.body.classList.add('auth-mode');
+    return () => document.body.classList.remove('auth-mode');
+  }, []);
+
   const navigate = useNavigate();
   const location = useLocation();
   const phone = location.state?.phone ?? "";

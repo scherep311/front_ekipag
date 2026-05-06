@@ -9,6 +9,11 @@ const CODE_LENGTH    = 6;
 const RESEND_SECONDS = 60;
 
 export default function Verify() {
+  useEffect(() => {
+    document.body.classList.add('auth-mode');
+    return () => document.body.classList.remove('auth-mode');
+  }, []);
+
   const navigate  = useNavigate();
   const location  = useLocation();
   // Телефон передаётся через router state (navigate("/verify", { state: { phone } }))

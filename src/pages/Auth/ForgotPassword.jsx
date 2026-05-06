@@ -1,11 +1,16 @@
 // src/pages/Auth/ForgotPassword.jsx
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import { forgotPassword } from "../../api/auth";
 import { phoneToServer, makePhoneHandler } from "./phoneUtils";
 
 export default function ForgotPassword() {
+  useEffect(() => {
+    document.body.classList.add('auth-mode');
+    return () => document.body.classList.remove('auth-mode');
+  }, []);
+
   const navigate = useNavigate();
   const phoneRef = useRef(null);
 
