@@ -16,6 +16,7 @@
   padding: 16px 20px;
   background: #fff;
   border-bottom: 1px solid #EDEDF0;
+  flex-shrink: 0;
 }
 
 .legal-back {
@@ -38,11 +39,74 @@
   margin: 0;
 }
 
+.legal-content {
+  padding: 8px 16px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section label */
+.legal-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9FA0A2;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 20px 4px 8px;
+}
+
+/* Org info card */
+.legal-info-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.legal-info-card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9FA0A2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 10px 16px 6px;
+}
+
+.legal-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 16px;
+}
+
+.legal-info-row--divider {
+  border-bottom: 1px solid #F0F0F3;
+}
+
+.legal-info-label {
+  font-size: 13px;
+  color: #9FA0A2;
+  flex-shrink: 0;
+  max-width: 42%;
+  line-height: 1.4;
+}
+
+.legal-info-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A2E;
+  text-align: right;
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* Documents list */
 .legal-list {
   display: flex;
   flex-direction: column;
   gap: 1px;
-  margin: 20px 16px;
   background: #EDEDF0;
   border-radius: 14px;
   overflow: hidden;
