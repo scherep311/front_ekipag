@@ -42,7 +42,7 @@
 }
 
 .bnav-icon--active {
-  filter: invert(18%) sepia(85%) saturate(1000%) hue-rotate(215deg) brightness(80%);
+  filter: brightness(0) saturate(100%) invert(22%) sepia(77%) saturate(900%) hue-rotate(200deg) brightness(88%);
 }
 
 .bnav-label {

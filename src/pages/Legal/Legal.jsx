@@ -1,4 +1,5 @@
 // src/pages/Legal/Legal.jsx
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Legal.css";
 
@@ -145,8 +146,24 @@ const DOCS = [
   },
 ];
 
+function ChevronIcon({ open }) {
+  return (
+    <svg
+      className={`legal-accordion-chevron${open ? " legal-accordion-chevron--open" : ""}`}
+      width="12" height="12" viewBox="0 0 12 12" fill="none"
+    >
+      <path d="M2 4l4 4 4-4" stroke="#9FA0A2" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
 export default function Legal() {
   const navigate = useNavigate();
+  const [openIndex, setOpenIndex] = useState(null);
+
+  function toggle(i) {
+    setOpenIndex(prev => (prev === i ? null : i));
+  }
 
   return (
     <div className="legal-page">
@@ -162,17 +179,27 @@ export default function Legal() {
       <div className="legal-content">
         <p className="legal-section-label">Сведения об образовательной организации</p>
 
-        {ORG_SECTIONS.map((section) => (
-          <div key={section.title} className="legal-info-card">
-            <p className="legal-info-card-title">{section.title}</p>
-            {section.rows.map((row, i) => (
-              <div key={row.label} className={`legal-info-row${i < section.rows.length - 1 ? " legal-info-row--divider" : ""}`}>
-                <span className="legal-info-label">{row.label}</span>
-                <span className="legal-info-value">{row.value}</span>
-              </div>
-            ))}
-          </div>
-        ))}
+        <div className="legal-accordion-card">
+          {ORG_SECTIONS.map((section, i) => (
+            <div key={section.title} className={`legal-accordion-item${i < ORG_SECTIONS.length - 1 ? " legal-accordion-item--divider" : ""}`}>
+              <button className="legal-accordion-header" onClick={() => toggle(i)}>
+                <span className="legal-accordion-title">{section.title}</span>
+                <ChevronIcon open={openIndex === i} />
+              </button>
+
+              {openIndex === i && (
+                <div className="legal-accordion-body">
+                  {section.rows.map((row, j) => (
+                    <div key={row.label} className={`legal-info-row${j < section.rows.length - 1 ? " legal-info-row--divider" : ""}`}>
+                      <span className="legal-info-label">{row.label}</span>
+                      <span className="legal-info-value">{row.value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
 
         <p className="legal-section-label">Документы</p>
 
