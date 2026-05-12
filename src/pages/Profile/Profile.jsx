@@ -100,22 +100,27 @@ export default function Profile() {
             <button className="profile-logout-inline" onClick={() => setShowLogoutModal(true)}>Выйти</button>
           </div>
           <div className="profile-student-row">
-            <div className="profile-avatar-wrap" onClick={() => !uploading && fileInputRef.current?.click()} title="Изменить фото">
+            <div className="profile-avatar-wrap">
               {profile?.photo_url ? (
                 <img src={profile.photo_url} alt="Фото профиля" className="profile-avatar-img" />
               ) : (
                 <div className="profile-avatar-placeholder">{getInitials(profile)}</div>
               )}
-              <div className={`profile-avatar-overlay${uploading ? " uploading" : ""}`}>
+              <button
+                className={`profile-avatar-edit-btn${uploading ? " uploading" : ""}`}
+                onClick={() => !uploading && fileInputRef.current?.click()}
+                disabled={uploading}
+                title="Изменить фото"
+              >
                 {uploading ? (
                   <div className="avatar-spinner" />
                 ) : (
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
                     <path d="M3 17v3h3l11-11-3-3L3 17zm19.7-11.3c.4-.4.4-1 0-1.4l-1.6-1.6a1 1 0 00-1.4 0l-1.3 1.3 3 3 1.3-1.3z" fill="#fff"/>
                   </svg>
                 )}
-              </div>
-              <input ref={fileInputRef} type="file" accept="image/*" className="profile-file-input" onChange={handlePhotoChange} onClick={e => e.stopPropagation()} />
+              </button>
+              <input ref={fileInputRef} type="file" accept="image/*" className="profile-file-input" onChange={handlePhotoChange} />
             </div>
 
             <div className="profile-student-info">
