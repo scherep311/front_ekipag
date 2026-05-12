@@ -57,7 +57,8 @@ export async function getInvoices() {
   const res = await apiFetch("/api/student/invoices/");
   if (!res.ok) throw new Error("Ошибка загрузки счетов");
   const data = await res.json();
-  return Array.isArray(data) ? data : (data.invoices ?? []);
+  if (Array.isArray(data)) return { invoices: data, is_referral: false };
+  return { invoices: data.invoices ?? [], is_referral: data.is_referral ?? false };
 }
 
 export async function confirmInvoice(id) {

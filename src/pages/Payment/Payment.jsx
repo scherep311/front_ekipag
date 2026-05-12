@@ -26,7 +26,7 @@ const IconClock = () => (
   </svg>
 );
 
-function InvoiceCard({ invoice, onConfirm }) {
+function InvoiceCard({ invoice, isReferral, onConfirm }) {
   const [loading, setLoading] = useState(false);
   const [status,  setStatus]  = useState(invoice.status);
 
@@ -55,7 +55,7 @@ function InvoiceCard({ invoice, onConfirm }) {
           <span className="pi-service-name">{invoice.service}</span>
         </div>
         <div className="pi-amount-block">
-          <span className="pi-label pi-label--right">Сумма к оплате</span>
+          <span className="pi-label pi-label--right">{isReferral ? "Сумма к оплате с учётом скидки" : "Сумма к оплате"}</span>
           <span className="pi-amount">{formatAmount(invoice.amount)}</span>
         </div>
       </div>
@@ -106,8 +106,9 @@ function InvoiceCard({ invoice, onConfirm }) {
 
 export default function Payment() {
   const navigate = useNavigate();
-  const [invoices, setInvoices] = useState([]);
-  const [loading,  setLoading]  = useState(true);
+  const [invoices,    setInvoices]    = useState([]);
+  const [isReferral,  setIsReferral]  = useState(false);
+  const [loading,     setLoading]     = useState(true);
 
   useEffect(() => { loadData(); }, []);
 
@@ -115,7 +116,8 @@ export default function Payment() {
     setLoading(true);
     try {
       const data = await getInvoices();
-      setInvoices(data);
+      setInvoices(data.invoices);
+      setIsReferral(data.is_referral);
     } catch (e) {
       if (e.message === "session_expired") navigate("/login");
     } finally {
@@ -154,7 +156,7 @@ export default function Payment() {
         ) : (
           <div className="payment-list">
             {sorted.map(inv => (
-              <InvoiceCard key={inv.id} invoice={inv} onConfirm={handleConfirm} />
+              <InvoiceCard key={inv.id} invoice={inv} isReferral={isReferral} onConfirm={handleConfirm} />
             ))}
           </div>
         )}
