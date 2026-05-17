@@ -1,30 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./ReferralLanding.css";
-
-// ── Утилиты ───────────────────────────────────────────────────────────────────
-
-function applyPhoneMask(raw) {
-  let digits = raw.replace(/\D/g, "");
-  if (digits.startsWith("8")) digits = "7" + digits.slice(1);
-  if (!digits.startsWith("7") && digits.length > 0) digits = "7" + digits;
-  digits = digits.slice(0, 11);
-  const d = digits.slice(1);
-  let result = "+7";
-  if (d.length === 0) return result;
-  result += ` (${d.slice(0, 3)}`;
-  if (d.length < 3) return result;
-  result += `) ${d.slice(3, 6)}`;
-  if (d.length < 6) return result;
-  result += `-${d.slice(6, 8)}`;
-  if (d.length < 8) return result;
-  result += `-${d.slice(8, 10)}`;
-  return result;
-}
-
-function phoneToServer(masked) {
-  return masked.replace(/\D/g, "");
-}
+import { phoneToServer, makePhoneHandler } from "../Auth/phoneUtils";
 
 // ── Компонент ─────────────────────────────────────────────────────────────────
 
@@ -57,6 +34,14 @@ export default function ReferralLanding() {
   // Ошибки полей
   const [errors,      setErrors]      = useState({});
   const [serverError, setServerError] = useState("");
+
+  const phoneRef = useRef(null);
+  const handlePhoneChange = useCallback(
+    makePhoneHandler(setPhone, phoneRef, () =>
+      setErrors(prev => ({ ...prev, phone: "" }))
+    ),
+    []
+  );
 
   // ── Шаг 1: валидируем токен при монтировании ─────────────────────────────
   useEffect(() => {
@@ -314,14 +299,12 @@ export default function ReferralLanding() {
           {/* Телефон */}
           <div className="rl-field">
             <input
+              ref={phoneRef}
               className={`rl-input${errors.phone ? " rl-input--error" : ""}`}
               type="tel"
               placeholder="Номер телефона"
               value={phone}
-              onChange={(e) => {
-                setPhone(applyPhoneMask(e.target.value));
-                setErrors((prev) => { const n = { ...prev }; delete n.phone; return n; });
-              }}
+              onChange={handlePhoneChange}
               disabled={isSubmitting}
               autoComplete="tel"
               inputMode="tel"

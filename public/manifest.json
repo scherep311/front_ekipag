@@ -1,23 +1,24 @@
 {
-  "name": "Автошкола",
-  "short_name": "Автошкола",
+  "id": "/",
+  "name": "Экипаж",
+  "short_name": "Экипаж",
   "description": "Приложение автошколы",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#ffffff",
   "theme_color": "#223BAB",
   "orientation": "portrait-primary",
+  "prefer_related_applications": false,
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "/logo192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/logo.png",
+      "src": "/logo512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

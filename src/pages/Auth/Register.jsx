@@ -1,5 +1,5 @@
 // src/pages/Auth/Register.jsx
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import { register, sendOtp } from "../../api/auth";
@@ -39,11 +39,6 @@ function validatePassword(value) {
 }
 
 export default function Register() {
-  useEffect(() => {
-    document.body.classList.add('auth-mode');
-    return () => document.body.classList.remove('auth-mode');
-  }, []);
-
   const navigate = useNavigate();
   const phoneRef = useRef(null);
 
@@ -189,21 +184,21 @@ export default function Register() {
         <div className="auth-field">
           <input className={`auth-input${errors.lastName ? " auth-input--error" : ""}`} type="text" placeholder="Фамилия" value={lastName}
             onChange={(e) => { setLastName(e.target.value.slice(0, 50)); clearError("lastName"); }}
-            autoComplete="family-name" autoCorrect="off" autoCapitalize="words" spellCheck={false} maxLength={50} />
+            autoComplete="family-name" autoCorrect="off" autoCapitalize="words" spellCheck={false} maxLength={50} enterKeyHint="next" />
           {errors.lastName && <span className="auth-field-error">{errors.lastName}</span>}
         </div>
 
         <div className="auth-field">
           <input className={`auth-input${errors.firstName ? " auth-input--error" : ""}`} type="text" placeholder="Имя" value={firstName}
             onChange={(e) => { setFirstName(e.target.value.slice(0, 50)); clearError("firstName"); }}
-            autoComplete="given-name" autoCorrect="off" autoCapitalize="words" spellCheck={false} maxLength={50} />
+            autoComplete="given-name" autoCorrect="off" autoCapitalize="words" spellCheck={false} maxLength={50} enterKeyHint="next" />
           {errors.firstName && <span className="auth-field-error">{errors.firstName}</span>}
         </div>
 
         <div className="auth-field">
           <input className={`auth-input${errors.middleName ? " auth-input--error" : ""}`} type="text" placeholder="Отчество (необязательно)" value={middleName}
             onChange={(e) => { setMiddleName(e.target.value.slice(0, 50)); clearError("middleName"); }}
-            autoComplete="additional-name" autoCorrect="off" autoCapitalize="words" spellCheck={false} maxLength={50} />
+            autoComplete="additional-name" autoCorrect="off" autoCapitalize="words" spellCheck={false} maxLength={50} enterKeyHint="next" />
           {errors.middleName && <span className="auth-field-error">{errors.middleName}</span>}
         </div>
 
@@ -212,13 +207,13 @@ export default function Register() {
             inputMode="numeric" placeholder={dateBirthFocused ? "дд.мм.гггг" : "Дата рождения"}
             value={dateBirth} onChange={handleDateBirthChange}
             onFocus={() => setDateBirthFocused(true)} onBlur={() => setDateBirthFocused(false)}
-            autoComplete="bday" maxLength={10} />
+            autoComplete="bday" maxLength={10} enterKeyHint="next" />
           {errors.dateBirth && <span className="auth-field-error">{errors.dateBirth}</span>}
         </div>
 
         <div className="auth-field">
           <input ref={phoneRef} className={`auth-input${errors.phone ? " auth-input--error" : ""}`} type="tel"
-            placeholder="+7 (9__) ___-__-__" value={phone} onChange={handlePhoneChange} autoComplete="tel" />
+            placeholder="+7 (9__) ___-__-__" value={phone} onChange={handlePhoneChange} autoComplete="tel" enterKeyHint="next" />
           {errors.phone && <span className="auth-field-error">{errors.phone}</span>}
         </div>
 
@@ -226,7 +221,7 @@ export default function Register() {
           <input className={`auth-input${errors.password ? " auth-input--error" : ""}`} type="password"
             placeholder="Введите пароль" value={password}
             onChange={(e) => { setPassword(e.target.value.slice(0, 64)); clearError("password"); }}
-            autoComplete="new-password" maxLength={64} />
+            autoComplete="new-password" maxLength={64} enterKeyHint="next" />
           {errors.password && <span className="auth-field-error">{errors.password}</span>}
         </div>
 
@@ -234,7 +229,7 @@ export default function Register() {
           <input className={`auth-input${errors.passwordConfirm ? " auth-input--error" : ""}`} type="password"
             placeholder="Подтверждение пароля" value={passwordConfirm}
             onChange={(e) => { setPasswordConfirm(e.target.value.slice(0, 64)); clearError("passwordConfirm"); }}
-            autoComplete="new-password" maxLength={64} />
+            autoComplete="new-password" maxLength={64} enterKeyHint="done" />
           {errors.passwordConfirm && <span className="auth-field-error">{errors.passwordConfirm}</span>}
         </div>
 
